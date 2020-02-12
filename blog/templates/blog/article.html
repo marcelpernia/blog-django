@@ -1,0 +1,25 @@
+{% extends "core/base.html" %}
+
+{% block pagetitle %}
+	articulo
+{% endblock pagetitle %}
+
+{% block scripts %}
+	
+{% endblock scripts %}
+
+{% block content %}
+
+	<div class="article__heading">
+		<img src="{{post.image}}" alt="">
+		<div class="title">
+			<h1>{{ post.title }}</h1>
+			<span class="meta">{{ post.published|date:"SHORT_DATE_FORMAT" }}  -  Por: {{ post.author.get_full_name }}</span>
+		</div>
+	</div>
+	<div class="section">
+		<div class="the__content">
+			{{ post.content|linebreaks }}
+		</div>
+	</div>
+{% endblock content %}

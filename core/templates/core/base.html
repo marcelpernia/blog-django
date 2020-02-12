@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block pagetitle %}{% endblock pagetitle %} | Notitech</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+	{% block scripts %}
+		
+	{% endblock scripts %}
+
+	<!-- App -->
+	<script src="{% static 'core/js/app.js' %}"></script>
+</head>
+<body>
+	<div class="header primary-bg">
+		<div class="wrap flex relative">
+			<div>
+				<a href="{% url 'home' %}"><img src="{% static 'core/img/logo.png' %}" class="logo" alt=""></a>
+			</div>
+			<div>
+				<ul class="menu" id="menu">
+					<li><a href="{% url 'home' %}" {% if request.path == '/'%}active{% endif %}>Inicio</a></li>
+					<li><a href="{% url 'page' 1 %}" {% if request.path == '/page/1/' %}active{% endif %}>Nosotros</a></li>
+					<li><a href="{% url 'blog' %}" {% if request.path == '/noticias/'%}active{% endif %}>Noticias</a></li>
+				</ul>
+				<i class="navicon fas fa-bars" id="navicon"></i>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="wrap">
+			<div class="main" id="main">
+				{% block content %}
+					
+				{% endblock content %}
+			</div>
+			
+			<div class="footer">
+				<div class="social">
+					{% if LINK_FACEBOOK %}<a target="_blank" href="{{ LINK_FACEBOOK }}" class="fab fa-facebook-f"></a>{% endif %}
+					{% if LINK_TWITTER %}<a target="_blank" href="{{ LINK_TWITTER }}" class="fab fa-twitter"></a>{% endif %}
+					{% if LINK_INSTAGRAM %}<a target="_blank" href="{{ LINK_INSTAGRAM }}" class="fab fa-instagram"></a>{% endif %}
+				</div>
+				<div class="footer__menu">
+					{% load pages_extras %}
+          {% get_page_list as pages %}
+          {% for page in pages %}
+
+	          {% if page.show_in_footer %}
+	            <a href="{% url 'page' page.id %}">{{page.name}}</a>
+	          {% endif %}
+
+          {% endfor %}
+				</div>
+			</div>
+
+			<div class="copy">
+				<p>Desarrollado por <a href="https://pe.linkedin.com/in/marcelpernia">Marcel Pernía</a></p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

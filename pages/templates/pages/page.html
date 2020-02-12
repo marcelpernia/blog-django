@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+
+{% block pagetitle %}
+	{{page.name}}
+{% endblock pagetitle %}
+
+{% block scripts %}
+	
+{% endblock scripts %}
+
+{% block content %}
+{% load static %}
+
+	{% if page.img %}
+	<div class="page__heading">
+			<img src="{% static 'core/img/angle.svg' %}" alt="" class="angle">
+			<img src="{{page.img.url}}" alt="" class="page__img">
+		<h1>{{page.name}}</h1>
+	</div>
+	{% endif %}
+
+	<div class="section">
+		{% if not page.img %}
+			<h2 class="heading"><span>{{page.name}}</span></h2>
+		{% endif %}
+		<div class="the__content">
+			{{page.content|linebreaks}}
+		</div>
+	</div>
+
+{% endblock content %}

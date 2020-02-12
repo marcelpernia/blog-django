@@ -1,0 +1,35 @@
+{% extends "core/base.html" %}
+
+{% block pagetitle %}
+	Noticias
+{% endblock pagetitle %}
+
+{% block scripts %}
+	
+{% endblock scripts %}
+
+{% block content %}
+{% load static %}
+	<div class="section">
+		<h2 class="heading"><span>Noticias</span></h2>
+		
+		<div class="posts">
+			{% for post in posts %}
+				<a href="{% url 'article' post.id %}" class="post">
+					<div class="post__img">
+						<img src="{{post.thumb}}" alt="">
+						<div class="post__meta">
+							<span>{{post.published|date:"SHORT_DATE_FORMAT"}}</span> - <span>Por: {{ post.author.get_full_name }}</span>
+						</div>
+					</div>
+					<h3 class="post__title">{{ post.title }}</h3>
+					<p class="post__excerpt">{{ post.excerpt }}</p>
+				</a>
+			{% endfor %}
+		</div>
+		{% if not posts %}
+		<center><h4>No hay artículos en este momento</h4></center>
+		{% endif %}
+
+	</div>
+{% endblock content %}
