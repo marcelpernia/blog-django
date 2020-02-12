@@ -24,7 +24,7 @@
 			<h2 class="heading"><span>{{page.name}}</span></h2>
 		{% endif %}
 		<div class="the__content">
-			{{page.content|linebreaks}}
+			{{page.content|safe}}
 
 
 			{% if user.is_authenticated %}

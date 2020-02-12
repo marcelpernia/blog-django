@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'social.apps.SocialConfig',
     'blog.apps.BlogConfig',
+    'ckeditor',
     'easy_thumbnails'
 ]
 
@@ -128,10 +129,25 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Easy thumbnail
 THUMBNAIL_ALIASES = {
     '': {
         'post_thumb': {'size': (371, 223), 'crop': True},
         'post': {'size': (580, 380), 'crop': True},
         'hero': {'size': (1160, 427), 'crop': True},
     },
+}
+
+# Ckeditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 
+             'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
 }

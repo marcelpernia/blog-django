@@ -19,7 +19,7 @@
 	</div>
 	<div class="section">
 		<div class="the__content">
-			{{ post.content|linebreaks }}
+			{{ post.content|safe }}
 
 			{% if user.is_authenticated %}
 				<br>
