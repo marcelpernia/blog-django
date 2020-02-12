@@ -132,5 +132,6 @@ THUMBNAIL_ALIASES = {
     '': {
         'post_thumb': {'size': (371, 223), 'crop': True},
         'post': {'size': (580, 380), 'crop': True},
+        'hero': {'size': (1160, 427), 'crop': True},
     },
 }

@@ -9,12 +9,12 @@
 {% endblock scripts %}
 
 {% block content %}
-{% load static %}
+{% load static thumbnail%}
 
 	{% if page.img %}
 	<div class="page__heading">
 			<img src="{% static 'core/img/angle.svg' %}" alt="" class="angle">
-			<img src="{{page.img.url}}" alt="" class="page__img">
+			<img src="{{page.img.hero.url}}" alt="" class="page__img">
 		<h1>{{page.name}}</h1>
 	</div>
 	{% endif %}
