@@ -6,6 +6,7 @@ class Page(models.Model):
 	name = models.CharField(max_length=100, verbose_name='Nombre', help_text="Ingrese el nombre de la página")
 	img = ThumbnailerImageField(upload_to="page", verbose_name='Imagen', blank=True, null=True)
 	content = models.TextField(verbose_name='Contenido')
+	order = models.SmallIntegerField(verbose_name='Orden', default=0)
 	show_in_header = models.BooleanField(verbose_name='Visible en Header', default=False)
 	show_in_footer = models.BooleanField(verbose_name='Visible en Footer', default=False)
 
@@ -14,6 +15,7 @@ class Page(models.Model):
 
 	class Meta:
 		verbose_name='página'
+		ordering = ['order', 'name']
 
 	def path(self):
 		return "/page/" + str(self.id) + "/"

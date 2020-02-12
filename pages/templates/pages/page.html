@@ -25,6 +25,12 @@
 		{% endif %}
 		<div class="the__content">
 			{{page.content|linebreaks}}
+
+
+			{% if user.is_authenticated %}
+				<br>
+				<a class="link" href="{% url 'admin:pages_page_change' page.id %}"><i class="fas fa-pencil-alt"></i> Editar página</a>
+			{% endif %}
 		</div>
 	</div>
 

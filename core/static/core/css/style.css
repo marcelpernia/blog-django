@@ -42,21 +42,26 @@ html {
 .relative {
 	position: relative;
 }
+
 /*LAYOUT*/
 .primary-color {color: #2AA9DA;}
 .primary-bg {background-color: #2AA9DA;}
 
-
-.header {
-	
+.link {
+	text-decoration: none;
+	display: inline-block;
+	border-bottom: solid 1px transparent;
+	font-weight: 600;
+	font-size: 16px;
 }
+.link:hover {
+	border-bottom-color: royalblue;
+}
+
 .header .wrap {
 	height: 80px;
 }
 
-.menu {
-
-}
 .menu li {
 	display: inline-block;
 	vertical-align: middle;

@@ -3,6 +3,6 @@ from .models import Page
 
 # Register your models here.
 class PageAdmin(admin.ModelAdmin):
-	list_display = ('name','show_in_footer', 'show_in_header')
+	list_display = ('name','show_in_footer', 'show_in_header', 'order')
 
 admin.site.register(Page, PageAdmin)
