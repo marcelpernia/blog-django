@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>{% block pagetitle %}{% endblock pagetitle %} | Notitech</title>
-	{% load static %}
+	{% load static pages_extras %}
+
 	<link rel="stylesheet" href="{% static 'core/css/style.css' %}">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap" rel="stylesheet"> 
@@ -26,8 +27,13 @@
 			<div>
 				<ul class="menu" id="menu">
 					<li><a href="{% url 'home' %}" {% if request.path == '/'%}active{% endif %}>Inicio</a></li>
-					<li><a href="{% url 'page' 1 %}" {% if request.path == '/page/1/' %}active{% endif %}>Nosotros</a></li>
-					<li><a href="{% url 'blog' %}" {% if request.path == '/noticias/'%}active{% endif %}>Noticias</a></li>
+					{% get_page_list as pages %}
+					{% for page in pages %}
+						{% if page.show_in_header %}
+							<li><a href="{% url 'page' page.id %}" {% if request.path == page.path %}active{% endif %}>{{ page.name }}</a></li>
+						{% endif %}
+					{% endfor %}
+					<li><a href="{% url 'blog' %}" {% if request.path == '/blog/'%}active{% endif %}>Noticias</a></li>
 				</ul>
 				<i class="navicon fas fa-bars" id="navicon"></i>
 			</div>
@@ -49,7 +55,6 @@
 					{% if LINK_INSTAGRAM %}<a target="_blank" href="{{ LINK_INSTAGRAM }}" class="fab fa-instagram"></a>{% endif %}
 				</div>
 				<div class="footer__menu">
-					{% load pages_extras %}
           {% get_page_list as pages %}
           {% for page in pages %}
 

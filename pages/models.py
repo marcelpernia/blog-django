@@ -13,3 +13,6 @@ class Page(models.Model):
 
 	class Meta:
 		verbose_name='página'
+
+	def path(self):
+		return "/page/" + str(self.id) + "/"
