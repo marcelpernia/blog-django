@@ -346,6 +346,52 @@ html {
 	text-decoration: underline;
 }
 
+.contactform {
+	margin: auto;
+	max-width: 500px;
+	padding: 20px;
+	background-color: #f2f2f2;
+	border: solid 1px #e3e3e3;
+	border-radius: 5px;
+}
+.contactform p {
+	padding: 10px 0;
+}
+.contactform label {
+	display: block;
+	padding-bottom: 5px;
+	font-weight: 600;
+	font-size: 14px;
+	color: #464646;
+}
+.contactform input:not(.submit) {
+	width: 100%;
+	border-radius: 3px;
+	padding: 0 5px;
+	height: 40px;
+	border: solid 1px #e3e3e3;
+}
+.contactform textarea {
+	width: 100%;
+	height: 200px;
+	border-radius: 3px;
+	border: solid 1px #e3e3e3;
+}
+.contactform .submit {
+	height: 40px;
+	background-color: #2AA9DA;
+	color: #fff;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+.contactform .submit:hover {
+	background-color: #279CC9;
+}
+
 @media (max-width: 1200px) {
 	.header .wrap {
 		height: 60px;

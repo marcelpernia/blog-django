@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'social.apps.SocialConfig',
     'blog.apps.BlogConfig',
     'ckeditor',
-    'easy_thumbnails'
+    'easy_thumbnails',
+    'contact'
 ]
 
 MIDDLEWARE = [
