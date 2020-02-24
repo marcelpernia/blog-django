@@ -34,6 +34,7 @@
 						{% endif %}
 					{% endfor %}
 					<li><a href="{% url 'blog' %}" {% if request.path == '/blog/'%}active{% endif %}>Noticias</a></li>
+					<li><a href="{% url 'contact' %}" {% if request.path == '/contact/'%} active {% endif %}>Contacto</a></li>
 				</ul>
 				<i class="navicon fas fa-bars" id="navicon"></i>
 			</div>
